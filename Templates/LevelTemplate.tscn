@@ -55,6 +55,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [node name="PlayerKin" parent="." instance=ExtResource( 1 )]
 position = Vector2( 190.746, 409.167 )
+collision_mask = 0
 motion/sync_to_physics = false
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -65,10 +66,10 @@ cell_clip_uv = true
 format = 1
 tile_data = PoolIntArray( -131062, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0 )
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+[node name="Joint" type="DampedSpringJoint2D" parent="."]
 node_a = NodePath("../PlayerRid")
 node_b = NodePath("../StaticBody2D")
-stiffness = 64.0
+stiffness = 17.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 391.068, 279.335 )
@@ -78,3 +79,4 @@ shape = SubResource( 5 )
 
 [node name="PlayerRid" parent="." instance=ExtResource( 4 )]
 position = Vector2( 294.079, 267.501 )
+collision_mask = 0

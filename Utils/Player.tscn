@@ -4,7 +4,7 @@
 [ext_resource path="res://Llamaamamamama.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18, 21 )
+extents = Vector2( 19.5, 21 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -18,5 +18,4 @@ shape = SubResource( 1 )
 current = true
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )

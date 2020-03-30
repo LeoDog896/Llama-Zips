@@ -4,7 +4,7 @@
 [ext_resource path="res://Utils/RigidPlayer.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 36, 42 )
+extents = Vector2( 39, 42 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 script = ExtResource( 2 )
@@ -15,5 +15,5 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
