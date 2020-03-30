@@ -53,14 +53,15 @@ func switchbody(toWhom): #false = switch to rigid
 		rigid_spr.visible = true
 		rigid_cam.current = true
 
+var thing = false
+
 func _input(event):
-	if event.type == InputEvent.MOUSE_BUTTON:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			switchbody(false)
 	if event is InputEventKey and event.scancode == KEY_F11:
-		if event.pressed:
-			if can_fullscreen:
-				OS.window_fullscreen = !OS.window_fullscreen
-				can_fullscreen = false
-		else:
-			can_fullscreen = true
+		switchbody(thing)
+		thing = !thing
+		#if event.pressed:
+			#if can_fullscreen:
+				#OS.window_fullscreen = !OS.window_fullscreen
+				#can_fullscreen = false
+		#else:
+			#can_fullscreen = true
