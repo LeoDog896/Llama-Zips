@@ -65,7 +65,7 @@ format = 1
 tile_data = PoolIntArray( -131062, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0 )
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
-node_a = NodePath("../KinematicBody2D")
+node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../StaticBody2D")
 stiffness = 64.0
 
