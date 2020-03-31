@@ -43,7 +43,6 @@ func _process(_delta):
 	elif velocity.x > 0:
 		sprite.set_flip_h(false)
 	if Input.is_action_just_pressed("grapple"):
-		print(thing)
 		switchbody(thing)
 		thing = !thing
 
