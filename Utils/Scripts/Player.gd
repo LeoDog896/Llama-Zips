@@ -55,7 +55,7 @@ func _process(_delta):
 
 var collision_point
 
-func switchbody(toWhom, pos): #false = switch to rigid
+func switchbody(toWhom, pos):
 	if toWhom:
 		raycast.cast_to = pos
 		raycast.enabled = true
@@ -65,7 +65,7 @@ func switchbody(toWhom, pos): #false = switch to rigid
 			thing = !thing
 			grapplingVelocity = collision_point.normalized()
 	else:
-		isGrappling = true
+		isGrappling = false
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
