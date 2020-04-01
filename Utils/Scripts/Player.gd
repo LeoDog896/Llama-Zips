@@ -9,7 +9,7 @@ onready var camera    : Camera2D         = get_node("Camera2D")
 onready var sprite    : Sprite           = get_node("Sprite")
 onready var collision : CollisionShape2D = get_node("CollisionShape2D")
 
-onready var raycast                 = get_node("RayCast2D")
+onready var raycast   : RayCast2D        = get_node("RayCast2D")
 
 var can_jump = true
 var can_fullscreen = true
@@ -46,7 +46,7 @@ func _physics_process(delta):
 		switchbody(thing, get_global_mouse_position())
 
 func _process(_delta):
-	if velocity.x < 0:	
+	if velocity.x < 0:
 		sprite.set_flip_h(true)
 	elif velocity.x > 0:
 		sprite.set_flip_h(false)
@@ -58,9 +58,9 @@ var collision_point
 func switchbody(toWhom, pos): #false = switch to rigid
 	if toWhom:
 		raycast.cast_to = pos
-		collision_point = raycast.get_collision_point()
-		print(collision_point)
-		if is_instance_valid(collision_point):
+		raycast.enabled = true
+		if raycast.is_colliding():
+			collision_point = raycast.get_collision_point()
 			isGrappling = true
 			thing = !thing
 			grapplingVelocity = collision_point.normalized()
