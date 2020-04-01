@@ -48,9 +48,6 @@ drag_margin_top = 1.0
 drag_margin_right = 1.0
 drag_margin_bottom = 1.0
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-enabled = true
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "standing"
