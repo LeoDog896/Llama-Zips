@@ -20,14 +20,13 @@ var grapplingVelocity
 func _ready():
 	set_process_input(true)
 
-var thing = true
 var player_aim
 
 func _physics_process(delta):
 	print(isGrappling)
 	if isGrappling:
 		player_aim = Vector2(5,5).normalized() * 10
-		self.position = self.position.clamped(160)
+		self.position = self.position.clamped(16)
 		move_and_slide(player_aim)
 	else:
 		velocity.y += delta * gravity
@@ -43,7 +42,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		move_and_slide(velocity, Vector2(0, -1))
 	if Input.is_action_just_pressed("grapple"):
-		switchbody(thing, get_global_mouse_position())
+		switchbody()
 
 func _process(_delta):
 	if velocity.x < 0:
@@ -55,14 +54,13 @@ func _process(_delta):
 
 var collision_point
 
-func switchbody(toWhom, pos):
-	if toWhom:
-		raycast.cast_to = pos
+func switchbody():
+	if !isGrappling:
+		raycast.cast_to = get_local_mouse_position()
 		raycast.enabled = true
 		if raycast.is_colliding():
 			collision_point = raycast.get_collision_point()
 			isGrappling = true
-			thing = !thing
 			grapplingVelocity = collision_point.normalized()
 	else:
 		isGrappling = false

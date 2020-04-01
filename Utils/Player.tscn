@@ -29,5 +29,4 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-rotation = -1.5708
 enabled = true
