@@ -26,30 +26,27 @@ var player_aim
 
 func _physics_process(delta):
 	if isGrappling:
-		player_aim = Vector2(5,5).normalized() * 10
-		self.position = self.position.clamped(self.position + grapplingPoint + Vector2(16,16))
-		move_and_slide(player_aim)
+		position = position.clamped(grapplingPoint + 300)
+	velocity.y += delta * gravity
+	if Input.is_action_pressed("ui_left"):
+		velocity.x = -speed
+		sprite.play("walking")
+	elif Input.is_action_pressed("ui_right"):
+		velocity.x =  speed
+		sprite.play("walking")
 	else:
-		velocity.y += delta * gravity
-		if Input.is_action_pressed("ui_left"):
-			velocity.x = -speed
-			sprite.play("walking")
-		elif Input.is_action_pressed("ui_right"):
-			velocity.x =  speed
-			sprite.play("walking")
-		else:
-			velocity.x = 0
-			sprite.play("standing")
-		if Input.is_action_pressed("ui_up") and is_on_floor():
-			velocity.y = -680
-		elif is_on_floor():
-			velocity.y = 0
-		move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
-#		var collision = move_and_collide(velocity * delta)
-#		if collision:
-#			var reflect = collision.remainder.bounce(collision.normal)
-#			velocity = velocity.bounce(collision.normal)
-#			move_and_collide(reflect)
+		velocity.x = 0
+		sprite.play("standing")
+	if Input.is_action_pressed("ui_up") and is_on_floor():
+		velocity.y = -680
+	elif is_on_floor():
+		velocity.y = 0
+	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
+#	var collision = move_and_collide(velocity * delta)
+#	if collision:
+#		var reflect = collision.remainder.bounce(collision.normal)
+#		velocity = velocity.bounce(collision.normal)
+#		move_and_collide(reflect)
 	if Input.is_action_just_pressed("grapple"):
 		switchbody()
 
