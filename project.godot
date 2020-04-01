@@ -19,6 +19,10 @@ config/name="Llama Zips"
 run/main_scene="res://Templates/LevelTemplate.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 ui_left={
