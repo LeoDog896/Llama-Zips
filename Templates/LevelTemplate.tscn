@@ -23,11 +23,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -45,11 +40,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 1/occluder_offset = Vector2( 0, 0 )
 1/occluder = SubResource( 2 )
 1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 3 )
-1/shape_one_way = false
-1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -74,3 +64,4 @@ tile_data = PoolIntArray( -131051, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 327.267, 124.673 )
+scale = Vector2( 1, 1 )
