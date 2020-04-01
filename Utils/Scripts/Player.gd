@@ -22,14 +22,18 @@ func _physics_process(delta):
 	velocity.y += delta * gravity
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
-		sprite.play("walking")
-		if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift"):
 			velocity.x = -speed - 200
+			sprite.play("running")
+		else:
+			sprite.play("walking")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  speed
-		sprite.play("walking")
-		if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift"):
 			velocity.x = speed + 200
+			sprite.play("running")
+		else:
+			sprite.play("walking")
 	else:
 		velocity.x = 0
 		sprite.play("standing")
