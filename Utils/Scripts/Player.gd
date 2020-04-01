@@ -6,10 +6,10 @@ export var speed   : float = 400
 export var gravity : float = 2000
 
 onready var camera    : Camera2D         = get_node("Camera2D")
-onready var sprite    : Sprite           = get_node("Sprite")
+onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
 onready var collision : CollisionShape2D = get_node("CollisionShape2D")
-
 onready var raycast   : RayCast2D        = get_node("RayCast2D")
+
 
 var can_jump = true
 var can_fullscreen = true
@@ -19,6 +19,7 @@ var grapplingVelocity
 var grapplingPoint
 
 func _ready():
+	
 	set_process_input(true)
 
 var player_aim
@@ -26,20 +27,19 @@ var player_aim
 func _physics_process(delta):
 	if isGrappling:
 		player_aim = Vector2(5,5).normalized() * 10
-		print(self.position)
 		self.position = self.position.clamped(self.position + grapplingPoint + Vector2(16,16))
 		move_and_slide(player_aim)
 	else:
 		velocity.y += delta * gravity
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -speed
-			self.frame = self.frame + 1
+			sprite.play("walking")
 		elif Input.is_action_pressed("ui_right"):
 			velocity.x =  speed
-			self.frame = self.frame + 1
+			sprite.play("walking")
 		else:
 			velocity.x = 0
-			self.frame = 0
+			sprite.play("standing")
 		if Input.is_action_pressed("ui_up") and is_on_floor():
 			velocity.y = -680
 		elif is_on_floor():
