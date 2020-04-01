@@ -52,7 +52,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerKin" parent="." instance=ExtResource( 1 )]
-collision_mask = 0
 motion/sync_to_physics = false
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -64,4 +63,3 @@ tile_data = PoolIntArray( -131051, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 
 
 [node name="RigidBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 327.267, 124.673 )
-scale = Vector2( 1, 1 )
