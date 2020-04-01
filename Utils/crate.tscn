@@ -6,7 +6,6 @@
 extents = Vector2( 24, 24 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
-position = Vector2( 244.282, -37.0124 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )

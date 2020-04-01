@@ -16,6 +16,7 @@ var can_fullscreen = true
 
 var isGrappling = false
 var grapplingVelocity
+var grapplingPoint
 
 func _ready():
 	set_process_input(true)
@@ -23,10 +24,10 @@ func _ready():
 var player_aim
 
 func _physics_process(delta):
-	print(isGrappling)
 	if isGrappling:
 		player_aim = Vector2(5,5).normalized() * 10
-		self.position = self.position.clamped(16)
+		print(self.position)
+		self.position = self.position.clamped(self.position + grapplingPoint + Vector2(16,16))
 		move_and_slide(player_aim)
 	else:
 		velocity.y += delta * gravity
@@ -43,7 +44,12 @@ func _physics_process(delta):
 			velocity.y = -680
 		elif is_on_floor():
 			velocity.y = 0
-		move_and_slide(velocity, Vector2(0, -1))
+		move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
+#		var collision = move_and_collide(velocity * delta)
+#		if collision:
+#			var reflect = collision.remainder.bounce(collision.normal)
+#			velocity = velocity.bounce(collision.normal)
+#			move_and_collide(reflect)
 	if Input.is_action_just_pressed("grapple"):
 		switchbody()
 
@@ -64,6 +70,8 @@ func switchbody():
 		if raycast.is_colliding():
 			collision_point = raycast.get_collision_point()
 			isGrappling = true
+			print(collision_point)
+			grapplingPoint = collision_point
 			grapplingVelocity = collision_point.normalized()
 	else:
 		isGrappling = false
