@@ -65,3 +65,4 @@ tile_data = PoolIntArray( -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 
 
 [node name="Crate" parent="." instance=ExtResource( 4 )]
 position = Vector2( 585.879, 48.4156 )
+gravity_scale = 8.0
