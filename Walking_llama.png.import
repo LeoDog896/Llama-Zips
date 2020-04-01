@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Llamaamamamama.png-13470f23bf0bb31bf10480ae735ebf7a.stex"
+path="res://.import/Walking_llama.png-d5de1ca2452244b734c629cc00e3a90e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Llamaamamamama.png"
-dest_files=[ "res://.import/Llamaamamamama.png-13470f23bf0bb31bf10480ae735ebf7a.stex" ]
+source_file="res://Walking_llama.png"
+dest_files=[ "res://.import/Walking_llama.png-d5de1ca2452244b734c629cc00e3a90e.stex" ]
 
 [params]
 

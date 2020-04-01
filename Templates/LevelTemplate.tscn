@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Utils/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tile.png" type="Texture" id=2]
 [ext_resource path="res://goldtile.png" type="Texture" id=3]
-[ext_resource path="res://Utils/RigidPlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -49,34 +48,15 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 } ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=5]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerKin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 190.746, 409.167 )
 collision_mask = 0
 motion/sync_to_physics = false
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 49.9667, 329.41 )
 tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
 cell_clip_uv = true
 format = 1
-tile_data = PoolIntArray( -131062, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0 )
-
-[node name="Joint" type="DampedSpringJoint2D" parent="."]
-node_a = NodePath("../PlayerRid")
-node_b = NodePath("../StaticBody2D")
-stiffness = 17.1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 391.068, 279.335 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 5 )
-
-[node name="PlayerRid" parent="." instance=ExtResource( 4 )]
-position = Vector2( 294.079, 267.501 )
-collision_mask = 0
+tile_data = PoolIntArray( -131051, 1, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 0, 0, 327712, 0, 0, 327713, 0, 0, 327714, 0, 0, 327715, 0, 0, 327716, 0, 0, 327717, 0, 0, 327718, 0, 0, 327719, 0, 0 )
