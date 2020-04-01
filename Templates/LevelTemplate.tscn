@@ -62,7 +62,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 [node name="Node2D" type="Node2D"]
 
 [node name="PlayerKin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 246.133, 53.668 )
+position = Vector2( 436.747, 61.0705 )
 collision_mask = 0
 motion/sync_to_physics = false
 
