@@ -36,8 +36,8 @@ func _physics_process(delta):
 			velocity.x =  speed
 		else:
 			velocity.x = 0
-		if Input.is_action_pressed("jump") and is_on_floor():
-			velocity.y = -600
+		if Input.is_action_pressed("ui_up") and is_on_floor():
+			velocity.y = -680
 		elif is_on_floor():
 			velocity.y = 0
 		move_and_slide(velocity, Vector2(0, -1))
@@ -49,8 +49,8 @@ func _process(_delta):
 		sprite.set_flip_h(true)
 	elif velocity.x > 0:
 		sprite.set_flip_h(false)
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = -600
+	if Input.is_action_pressed("ui_up") and is_on_floor():
+		velocity.y = -680
 
 var collision_point
 
