@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Utils/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Walking_llama.png" type="Texture" id=2]
@@ -12,23 +12,36 @@ region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 44, 44, 44 )
+region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
+region = Rect2( 0, 44, 44, 44 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 44, 44 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 44, 44, 44 )
+
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
-"loop": true,
-"name": "walking",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "standing",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "running",
+"speed": 100.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]
@@ -50,5 +63,5 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 5 )
-animation = "standing"
+frames = SubResource( 7 )
+animation = "running"
