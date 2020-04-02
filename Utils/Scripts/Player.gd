@@ -44,7 +44,7 @@ func _physics_process(delta):
 		velocity.y = -610
 	elif is_on_floor():
 		velocity.y = 0
-	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, true)
+	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
 	var collision = move_and_collide(velocity * delta)
 	if collision and collision.collider.name == "Crate":
 		var reflect = collision.remainder.bounce(collision.normal)

@@ -35,13 +35,13 @@ animations = [ {
 }, {
 "frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "walking",
-"speed": 10.0
+"name": "running",
+"speed": 15.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
-"name": "running",
-"speed": 100.0
+"name": "walking",
+"speed": 10.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -70,5 +70,3 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "speeding"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
