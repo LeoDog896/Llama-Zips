@@ -65,3 +65,5 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "running"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

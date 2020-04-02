@@ -9,6 +9,9 @@ onready var camera    : Camera2D         = get_node("Camera2D")
 onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
 onready var collision : CollisionShape2D = get_node("CollisionShape2D")
 
+onready var zipline   : Node2D           = get_node("./../Zipline")
+onready var ray       : RayCast2D        = get_node("RayCast2D")
+
 var can_jump = true
 var can_fullscreen = true
 
@@ -57,6 +60,14 @@ func _process(_delta):
 		velocity.y = -610
 
 var collision_point
+
+func raycast():
+	ray.cast_to = get_local_mouse_position()
+	ray.enabled = true
+	if ray.is_colliding():
+		return ray.get_collision_point()
+	else:
+		return null
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
