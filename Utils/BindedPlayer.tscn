@@ -42,6 +42,11 @@ animations = [ {
 "loop": true,
 "name": "running",
 "speed": 100.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "speeding",
+"speed": 5.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]
@@ -64,6 +69,6 @@ editor_draw_drag_margin = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-animation = "running"
+animation = "speeding"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
