@@ -26,14 +26,14 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 		if Input.is_action_pressed("ui_shift"):
-			velocity.x = -speed - 200
+			velocity.x = -speed - 100
 			sprite.play("running")
 		else:
 			sprite.play("walking")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  speed
 		if Input.is_action_pressed("ui_shift"):
-			velocity.x = speed + 200
+			velocity.x = speed + 100
 			sprite.play("running")
 		else:
 			sprite.play("walking")
@@ -44,7 +44,7 @@ func _physics_process(delta):
 		velocity.y = -610
 	elif is_on_floor():
 		velocity.y = 0
-	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
+	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, true)
 	var collision = move_and_collide(velocity * delta)
 	if collision and collision.collider.name == "Crate":
 		var reflect = collision.remainder.bounce(collision.normal)
