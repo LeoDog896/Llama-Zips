@@ -38,15 +38,15 @@ animations = [ {
 "name": "standing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "walking",
-"speed": 10.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "jumping",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]

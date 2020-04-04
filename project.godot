@@ -21,7 +21,6 @@ config/icon="res://icon.png"
 
 [display]
 
-mouse_cursor/custom_image="https://www.freeiconspng.com/uploads/blue-circle-icon-12.png"
 mouse_cursor/custom_image_hotspot=false
 window/stretch/mode="viewport"
 
@@ -71,5 +70,5 @@ ui_left_mouse={
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0.588235, 0.980392, 1 )
+environment/default_clear_color=Color( 0.796078, 0.917647, 1, 1 )
 environment/default_environment="res://default_env.tres"
