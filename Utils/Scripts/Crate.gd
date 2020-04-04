@@ -3,6 +3,7 @@ extends RigidBody2D
 var isGrabbed = false
 
 onready var player : KinematicBody2D = get_node("./../Player")
+onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,13 +16,13 @@ func _input_event(viewport, event, shape_idx):
 		call_deferred("on_click")
 
 func _process(delta):
-	print(self.position)
 	if isGrabbed:
-		self.position = player.position
+		if player_sprite.flip_h:
+			self.position = player.position + Vector2(-32, -16)
+		else:
+			self.position = player.position + Vector2(32, -16)
 
 func on_click():
-	self.get_parent().remove_child(self)
-	player.add_child(self)
 	self.position = player.position
 	self.collision_layer = 0
 	self.collision_mask = 0
