@@ -39,6 +39,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
 		sprite.play("jumping")
+		if not is_on_floor():
+			sprite.play("jumping")
 	elif is_on_floor():
 		velocity.y = 0
 	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
@@ -55,7 +57,8 @@ func _process(_delta):
 		sprite.set_flip_h(false)
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
-		sprite.play("jumping")
+		if not is_on_floor():
+			sprite.play("jumping")
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
