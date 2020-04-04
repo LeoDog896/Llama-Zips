@@ -33,6 +33,11 @@ animations = [ {
 "name": "standing",
 "speed": 5.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "jumping",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "walking",
