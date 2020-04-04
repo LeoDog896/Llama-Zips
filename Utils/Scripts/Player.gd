@@ -18,24 +18,31 @@ func _ready():
 var player_aim
 
 func _physics_process(delta):
+	if is_on_floor():
+		can_jump = true
+	else:
+		can_jump = false
 	velocity.y += delta * gravity
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 		if Input.is_action_pressed("ui_shift"):
 			velocity.x = -speed - 100
-			sprite.play("running")
-		else:
+			if can_jump:
+				sprite.play("running")
+		elif can_jump:
 			sprite.play("walking")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  speed
 		if Input.is_action_pressed("ui_shift"):
 			velocity.x = speed + 100
-			sprite.play("running")
-		else:
+			if can_jump:
+				sprite.play("running")
+		elif can_jump:
 			sprite.play("walking")
 	else:
 		velocity.x = 0
-		sprite.play("standing")
+		if can_jump:
+			sprite.play("standing")
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
 		sprite.play("jumping")
