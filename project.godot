@@ -21,8 +21,7 @@ config/icon="res://icon.png"
 
 [display]
 
-mouse_cursor/custom_image="https://www.freeiconspng.com/uploads/blue-circle-icon-12.png"
-mouse_cursor/custom_image_hotspot=false
+mouse_cursor/custom_image_hotspot=true
 window/stretch/mode="viewport"
 
 [input]
