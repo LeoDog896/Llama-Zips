@@ -1,52 +1,57 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Utils/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Walking_llama.png" type="Texture" id=2]
+[ext_resource path="res://Llama Sprites.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 22 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 44, 44 )
+region = Rect2( 0, 44, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 44, 44, 44 )
+region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 44, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
+region = Rect2( 0, 44, 44, 44 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 44, 44 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 2 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "running",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "standing",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "jumping",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "walking",
 "speed": 10.0
-}, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "running",
-"speed": 15.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]
@@ -68,5 +73,5 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 animation = "jumping"
