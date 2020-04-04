@@ -21,6 +21,8 @@ config/icon="res://icon.png"
 
 [display]
 
+mouse_cursor/custom_image="https://www.freeiconspng.com/uploads/blue-circle-icon-12.png"
+mouse_cursor/custom_image_hotspot=false
 window/stretch/mode="viewport"
 
 [input]
@@ -60,7 +62,14 @@ ui_shift={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+ui_left_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":8,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0.588235, 0.980392, 1 )
 environment/default_environment="res://default_env.tres"
