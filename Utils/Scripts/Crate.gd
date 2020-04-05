@@ -22,26 +22,23 @@ func _process(delta):
 			self.position = player.position + Vector2(-32, -16)
 		else:
 			self.position = player.position + Vector2(32, -16)
+	if not isGrabbed and to_trigger_click:
+		self.collision_layer = 0
+		self.collision_mask = 0
+		self.mode = MODE_STATIC
+		self.sleeping = true
+		isGrabbed = true
 
 func _integrate_forces(state):
-	if to_trigger_click:
-		print(isGrabbed)
-		to_trigger_click = false
-		if isGrabbed:
-			var xform = state.get_transform()
-			state.set_transform(xform)
-			if player_sprite.flip_h:
-				xform.origin = player.position + Vector2(-80, -16)
-			else:
-				xform.origin = player.position + Vector2(80, -16)
-			self.collision_layer = 1
-			self.collision_mask = 1
-			self.mode = MODE_RIGID
-			self.sleeping = false
-			isGrabbed = false
+	if to_trigger_click and isGrabbed:
+		var xform = state.get_transform()
+		state.set_transform(xform)
+		if player_sprite.flip_h:
+			xform.origin = player.position + Vector2(-80, -16)
 		else:
-			self.collision_layer = 0
-			self.collision_mask = 0
-			self.mode = MODE_STATIC
-			self.sleeping = true
-			isGrabbed = true
+			xform.origin = player.position + Vector2(80, -16)
+		self.collision_layer = 1
+		self.collision_mask = 1
+		self.mode = MODE_RIGID
+		self.sleeping = false
+		isGrabbed = false
