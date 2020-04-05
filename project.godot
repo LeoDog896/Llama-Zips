@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 
 [display]
 
+mouse_cursor/custom_image="res://Mouse Cursor-1.png.png"
 mouse_cursor/custom_image_hotspot=true
 window/stretch/mode="viewport"
 
@@ -71,4 +72,3 @@ ui_left_mouse={
 [rendering]
 
 environment/default_clear_color=Color( 0.654902, 0.737255, 0.792157, 1 )
-environment/default_environment="res://default_env.tres"
