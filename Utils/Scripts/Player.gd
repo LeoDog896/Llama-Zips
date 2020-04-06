@@ -46,8 +46,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
 		sprite.play("jumping")
-		if not is_on_floor():
-			sprite.play("jumping")
 	elif is_on_floor():
 		velocity.y = 0
 	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
@@ -56,7 +54,7 @@ func _physics_process(delta):
 		var reflect = collision.remainder.bounce(collision.normal)
 		velocity = velocity.bounce(collision.normal)
 		move_and_collide(reflect)
-
+	check()
 func _process(_delta):
 	if velocity.x < 0:
 		sprite.set_flip_h(true)
@@ -64,8 +62,7 @@ func _process(_delta):
 		sprite.set_flip_h(false)
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
-		if not is_on_floor():
-			sprite.play("jumping")
+		check()
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
@@ -75,3 +72,7 @@ func _input(event):
 				can_fullscreen = false
 		else:
 			can_fullscreen = true
+			
+func check():
+	if not is_on_floor():
+			sprite.play("jumping")
