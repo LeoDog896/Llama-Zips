@@ -6,7 +6,7 @@ var to_trigger_click = false
 onready var player : KinematicBody2D = get_node("./../Player")
 onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
 
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
@@ -16,7 +16,8 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and isGrabbed and event.button_index == 1:
 		to_trigger_click = true
 var pos
-func _physics_process(delta):
+
+func _physics_process(_delta):
 	if isGrabbed:
 		if player_sprite.flip_h:
 			global_transform.origin = player.position + Vector2(-32, -16)
