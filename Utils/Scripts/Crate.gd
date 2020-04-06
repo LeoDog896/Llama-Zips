@@ -15,7 +15,7 @@ func _input_event(viewport, event, shape_idx):
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and isGrabbed and event.button_index == 1:
 		to_trigger_click = true
-
+var pos
 func _physics_process(delta):
 	if isGrabbed:
 		if player_sprite.flip_h:
@@ -30,13 +30,15 @@ func _physics_process(delta):
 		isGrabbed = true
 		to_trigger_click = false
 	elif isGrabbed and to_trigger_click:
+		pos = player.position
 		if player_sprite.flip_h:
-			global_transform.origin = player.position + Vector2(-62, -16)
+			global_transform.origin = player.position + Vector2(-80, 0)
 		else:
-			global_transform.origin = player.position + Vector2(62, -16)
-		self.collision_layer = 1
-		self.collision_mask = 1
+			global_transform.origin = player.position + Vector2(80, 0)
 		self.mode = RigidBody2D.MODE_RIGID
 		self.sleeping = false
 		isGrabbed = false
 		to_trigger_click = false
+		player.position = pos
+		self.collision_layer = 1
+		self.collision_mask = 1
