@@ -18,11 +18,17 @@ func _ready():
 var player_aim
 
 func _physics_process(delta):
+	velocity.y += delta * gravity
+	var collision = move_and_collide(velocity * delta)
+	if collision and collision.collider.name == "Crate":
+		var reflect = collision.remainder.bounce(collision.normal)
+		velocity = velocity.bounce(collision.normal)
+		move_and_collide(reflect)
+	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
 	if is_on_floor():
 		can_jump = true
 	else:
 		can_jump = false
-	velocity.y += delta * gravity
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 		if Input.is_action_pressed("ui_shift"):
@@ -45,15 +51,9 @@ func _physics_process(delta):
 			sprite.play("standing")
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
-		sprite.play("jumping")
 	elif is_on_floor():
 		velocity.y = 0
-	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
-	var collision = move_and_collide(velocity * delta)
-	if collision and collision.collider.name == "Crate":
-		var reflect = collision.remainder.bounce(collision.normal)
-		velocity = velocity.bounce(collision.normal)
-		move_and_collide(reflect)
+	print(is_on_floor())
 	check()
 func _process(_delta):
 	if velocity.x < 0:
@@ -62,7 +62,6 @@ func _process(_delta):
 		sprite.set_flip_h(false)
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
-		check()
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
