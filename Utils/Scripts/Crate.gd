@@ -25,34 +25,18 @@ func _process(delta):
 	if not isGrabbed and to_trigger_click:
 		self.collision_layer = 0
 		self.collision_mask = 0
-		self.mode = MODE_STATIC
+		self.mode = RigidBody2D.MODE_STATIC
 		self.sleeping = true
 		isGrabbed = true
+		to_trigger_click = false
 	elif isGrabbed and to_trigger_click:
-		var xform = Physics2DServer.body_get_state(self.get_rid(), Physics2DServer.BODY_STATE_LINEAR_VELOCITY)
-		
 		if player_sprite.flip_h:
-			xform.origin = player.position + Vector2(-80, -16)
+			self.position = player.position + Vector2(-62, -16)
 		else:
-			xform.origin = player.position + Vector2(80, -16)
-			
-		Physics2DServer.body_set_state(self.get_rid(), Physics2DServer.BODY_STATE_LINEAR_VELOCITY, xform)
+			self.position = player.position + Vector2(62, -16)
 		self.collision_layer = 1
 		self.collision_mask = 1
-		self.mode = MODE_RIGID
+		self.mode = RigidBody2D.MODE_RIGID
 		self.sleeping = false
 		isGrabbed = false
-
-func _integrate_forces(state):
-	if to_trigger_click and isGrabbed:
-		var xform = state.get_transform()
-		state.set_transform(xform)
-		if player_sprite.flip_h:
-			xform.origin = player.position + Vector2(-80, -16)
-		else:
-			xform.origin = player.position + Vector2(80, -16)
-		self.collision_layer = 1
-		self.collision_mask = 1
-		self.mode = MODE_RIGID
-		self.sleeping = false
-		isGrabbed = false
+		to_trigger_click = false
