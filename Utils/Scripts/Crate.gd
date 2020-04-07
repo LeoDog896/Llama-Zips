@@ -8,11 +8,11 @@ onready var player : KinematicBody2D = get_node("./../Player")
 onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
 
 func _input_event(_viewport, event, _shape_idx):
-	if Input.is_action_pressed("ui_left_mouse"):
+	if Input.is_action_pressed("ui_left_mouse") and not isGrabbed:
 		pick()
 
 func _input(event):
-	if Input.is_action_pressed("ui_left_mouse"):
+	if Input.is_action_pressed("ui_left_mouse") and isGrabbed:
 		pick()
 
 func pick():
@@ -34,7 +34,7 @@ func pick():
 		player.position = pos
 		self.collision_layer = 1
 		self.collision_mask = 1
-		self.apply_central_impulse((self.position - get_global_mouse_position()).normalized())
+		self.linear_velocity = (get_global_mouse_position() - self.position).normalized() * 500
 
 func _physics_process(_delta):
 	if isGrabbed:
