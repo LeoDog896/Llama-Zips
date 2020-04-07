@@ -7,9 +7,7 @@ onready var player : KinematicBody2D = get_node("./../Player")
 onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
 
 func _input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton \
-	and event.button_index == BUTTON_LEFT \
-	and event.is_pressed():
+	if Input.is_action_pressed("ui_left_mouse"):
 		to_trigger_click = true
 
 func _input(event):
