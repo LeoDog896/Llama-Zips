@@ -18,6 +18,7 @@ func _input(event):
 var pos
 
 func _physics_process(_delta):
+	print(self.position)
 	if isGrabbed:
 		if player_sprite.flip_h:
 			global_transform.origin = player.position + Vector2(-32, -16)
@@ -41,5 +42,7 @@ func _physics_process(_delta):
 		isGrabbed = false
 		to_trigger_click = false
 		player.position = pos
+		print((self.position - get_global_mouse_position()).normalized())
+		self.apply_central_impulse((self.position - get_global_mouse_position()).normalized())
 		self.collision_layer = 1
 		self.collision_mask = 1
