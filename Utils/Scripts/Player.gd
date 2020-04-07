@@ -24,17 +24,17 @@ func _physics_process(delta):
 		can_jump = true
 	else:
 		can_jump = false
-	if Input.is_action_pressed("ui_left"):
+	if Input.get_action_strength("ui_left"):
 		velocity.x = -speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.get_action_strength("ui_shift"):
 			velocity.x = -speed - 100
 			if can_jump:
 				sprite.play("running")
 		elif can_jump:
 			sprite.play("walking")
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.get_action_strength("ui_right"):
 		velocity.x =  speed
-		if Input.is_action_pressed("ui_shift"):
+		if Input.get_action_strength("ui_shift"):
 			velocity.x = speed + 100
 			if can_jump:
 				sprite.play("running")
