@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var isGrabbed = false
 var to_trigger_click = false
+var pos
 
 onready var player : KinematicBody2D = get_node("./../Player")
 onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
@@ -13,7 +14,6 @@ func _input_event(_viewport, event, _shape_idx):
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and isGrabbed and event.button_index == 1:
 		pick()
-var pos
 
 func pick():
 	if not isGrabbed:
@@ -32,12 +32,11 @@ func pick():
 		self.sleeping = false
 		isGrabbed = false
 		player.position = pos
-		self.apply_central_impulse((self.position - get_global_mouse_position()).normalized())
 		self.collision_layer = 1
 		self.collision_mask = 1
+		self.apply_central_impulse((self.position - get_global_mouse_position()).normalized())
 
 func _physics_process(_delta):
-
 	if isGrabbed:
 		if player_sprite.flip_h:
 			global_transform.origin = player.position + Vector2(-32, -16)
