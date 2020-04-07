@@ -29,10 +29,11 @@ func _physics_process(delta):
 	if gravity_reverse:
 		velocity.y -= delta * gravity
 		sprite.set_flip_v(true)
+		move_and_slide(velocity, Vector2(0, 1), false, 4, 0.785398, false)
 	else:
 		velocity.y += delta * gravity
 		sprite.set_flip_v(false)
-	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
+		move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
 	if is_on_floor():
 		can_jump = true
 	else:
