@@ -12,7 +12,7 @@ func _input_event(_viewport, event, _shape_idx):
 		pick()
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and isGrabbed and event.button_index == 1:
+	if Input.is_action_pressed("ui_left_mouse"):
 		pick()
 
 func pick():
