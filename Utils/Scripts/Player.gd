@@ -12,13 +12,26 @@ var can_jump = true
 var can_fullscreen = true
 
 func _ready():
+	set_gravity_vector_reverse()
 	set_process_input(true)
 
 var player_aim
+var gravity_reverse = false
+func set_gravity_vector_normal():
+	gravity_reverse = false
+	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, -1))
+
+func set_gravity_vector_reverse():
+	gravity_reverse = true
+	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))
 
 func _physics_process(delta):
-	velocity.y += delta * gravity
-
+	if gravity_reverse:
+		velocity.y -= delta * gravity
+		sprite.set_flip_v(true)
+	else:
+		velocity.y += delta * gravity
+		sprite.set_flip_v(false)
 	move_and_slide(velocity, Vector2(0, -1), false, 4, 0.785398, false)
 	if is_on_floor():
 		can_jump = true
@@ -55,6 +68,7 @@ func _physics_process(delta):
 		move_and_collide(reflect)
 	check()
 func _process(_delta):
+	print(velocity.y)
 	if velocity.x < 0:
 		sprite.set_flip_h(true)
 	elif velocity.x > 0:
@@ -73,4 +87,4 @@ func _input(event):
 			
 func check():
 	if not is_on_floor():
-			sprite.play("jumping")
+		sprite.play("jumping")
