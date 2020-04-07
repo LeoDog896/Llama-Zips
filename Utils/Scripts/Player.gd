@@ -19,11 +19,17 @@ var player_aim
 var gravity_reverse = false
 func set_gravity_vector_normal():
 	gravity_reverse = false
-	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, -1))
+	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))
 
 func set_gravity_vector_reverse():
 	gravity_reverse = true
-	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))
+	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, -1))
+
+func toggle_gravity():
+	if gravity_reverse:
+		set_gravity_vector_normal()
+	else:
+		set_gravity_vector_reverse()
 
 func _physics_process(delta):
 	if gravity_reverse:
@@ -75,7 +81,10 @@ func _process(_delta):
 	elif velocity.x > 0:
 		sprite.set_flip_h(false)
 	if Input.is_action_pressed("ui_up") and is_on_floor():
-		velocity.y = -610
+		if gravity_reverse:
+			velocity.y = 610
+		else:
+			velocity.y = -610
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
