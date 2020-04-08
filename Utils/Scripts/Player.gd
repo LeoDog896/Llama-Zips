@@ -11,15 +11,6 @@ onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
 var can_jump = true
 var can_fullscreen = true
 
-if Input.is_action_pressed("gravity_switch"):
-	if graviy reverse = true():
-		gravity reverse = false
-		else:
-			gravity reverse = true
-	
-	
-
-
 
 func _ready():
 	set_process_input(true)
@@ -75,6 +66,8 @@ func _physics_process(delta):
 			sprite.play("standing")
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -610
+	if Input.is_action_just_pressed("gravity_switch"):
+		toggle_gravity()
 	elif is_on_floor():
 		velocity.y = 0
 	var collision = move_and_collide(velocity * delta)
