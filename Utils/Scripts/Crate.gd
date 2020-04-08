@@ -4,6 +4,7 @@ var isGrabbed = false
 var to_trigger_click = false
 var pos
 var mouse_pos
+var origin
 
 onready var player : KinematicBody2D = get_node("./../Player")
 onready var player_sprite : AnimatedSprite = get_node("./../Player/AnimatedSprite")
@@ -27,6 +28,7 @@ func pick():
 	elif isGrabbed:
 		pos = player.position
 		mouse_pos = (get_global_mouse_position() - self.position).normalized()
+		
 		if player_sprite.flip_h:
 			global_transform.origin = player.position + Vector2(-80, 0)
 			mouse_pos.x = -abs(mouse_pos.x)
