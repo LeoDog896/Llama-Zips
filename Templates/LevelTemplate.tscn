@@ -89,3 +89,5 @@ gravity_scale = 8.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 479.341, -7.98901 )
+speed = null
+gravity = null

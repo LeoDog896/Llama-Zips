@@ -20,11 +20,11 @@ region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
-region = Rect2( 44, 0, 44, 44 )
+region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 44, 44 )
+region = Rect2( 44, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
@@ -42,15 +42,15 @@ animations = [ {
 "name": "running",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "walking",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "standing",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]

@@ -11,8 +11,17 @@ onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
 var can_jump = true
 var can_fullscreen = true
 
+if Input.is_action_pressed("gravity_switch"):
+	if graviy reverse = true():
+		gravity reverse = false
+		else:
+			gravity reverse = true
+	
+	
+
+
+
 func _ready():
-	set_gravity_vector_reverse()
 	set_process_input(true)
 
 var player_aim
