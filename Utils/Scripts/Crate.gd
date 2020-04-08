@@ -42,10 +42,17 @@ func pick():
 		self.collision_layer = 1
 		self.collision_mask = 1
 		self.linear_velocity = mouse_pos * 500
-
+var vector
 func _physics_process(_delta):
+	print(linear_velocity.y)
 	if isGrabbed:
+		vector = Vector2(0,0)
 		if player_sprite.flip_h:
-			global_transform.origin = player.position + Vector2(-32, -16)
+			vector.x = -32
 		else:
-			global_transform.origin = player.position + Vector2(32, -16)
+			vector.x = 32
+		if player_sprite.flip_v:
+			vector.y = 16
+		else:
+			vector.y = -16
+		global_transform.origin = player.position + vector
