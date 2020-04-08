@@ -3,7 +3,8 @@ extends KinematicBody2D
 var velocity : Vector2 = Vector2(0,0)
 
 export var speed   : float = 300
-export var gravity : float = 2000
+export var gravity : float = 490
+export var jump    : float = 305
 
 onready var camera    : Camera2D         = get_node("Camera2D")
 onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
@@ -65,7 +66,7 @@ func _physics_process(delta):
 		if can_jump:
 			sprite.play("standing")
 	if Input.is_action_pressed("ui_up") and is_on_floor():
-		velocity.y = -610
+		velocity.y = -jump
 	if Input.is_action_just_pressed("gravity_switch"):
 		toggle_gravity()
 	elif is_on_floor():
@@ -77,16 +78,15 @@ func _physics_process(delta):
 		move_and_collide(reflect)
 	check()
 func _process(_delta):
-	print(velocity.y)
 	if velocity.x < 0:
 		sprite.set_flip_h(true)
 	elif velocity.x > 0:
 		sprite.set_flip_h(false)
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		if gravity_reverse:
-			velocity.y = 610
+			velocity.y = jump
 		else:
-			velocity.y = -610
+			velocity.y = -jump
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_F11:
