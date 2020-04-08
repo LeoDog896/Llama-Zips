@@ -17,12 +17,13 @@ _global_script_class_icons={
 
 config/name="Gravity Llama"
 run/main_scene="res://Templates/LevelTemplate.tscn"
+boot_splash/image="res://Icon-1.png.png"
 config/icon="res://Icon-1.png.png"
 
 [display]
 
+window/energy_saving/keep_screen_on=false
 mouse_cursor/custom_image_hotspot=true
-window/stretch/mode="viewport"
 
 [input]
 
