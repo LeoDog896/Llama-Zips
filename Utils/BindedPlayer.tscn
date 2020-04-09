@@ -4,7 +4,7 @@
 [ext_resource path="res://Llama Sprites.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 22 )
+extents = Vector2( 17.6505, 22.6465 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -20,11 +20,11 @@ region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 44, 44 )
+region = Rect2( 44, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 44, 0, 44, 44 )
+region = Rect2( 0, 0, 44, 44 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
@@ -42,15 +42,15 @@ animations = [ {
 "name": "running",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "standing",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "walking",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "standing",
+"speed": 5.0
 } ]
 
 [node name="BindedPlayer" type="KinematicBody2D"]
@@ -74,5 +74,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3.12841, 0.568802 )
 frames = SubResource( 8 )
 animation = "jumping"
