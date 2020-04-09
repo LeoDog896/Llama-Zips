@@ -44,7 +44,6 @@ func pick():
 		self.linear_velocity = mouse_pos * 500
 var vector
 func _physics_process(_delta):
-	print(linear_velocity.y)
 	if isGrabbed:
 		vector = Vector2(0,0)
 		if player_sprite.flip_h:

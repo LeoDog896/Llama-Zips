@@ -11,13 +11,20 @@ onready var sprite    : AnimatedSprite   = get_node("AnimatedSprite")
 
 var can_jump = true
 var can_fullscreen = true
-
+var spawn
 
 func _ready():
+	spawn = self.position
 	set_process_input(true)
 
 var player_aim
 var gravity_reverse = false
+
+func respawn(body: Node):
+	if (body.get_name() == "Player"):
+		print("e")
+		self.position = spawn
+
 func set_gravity_vector_normal():
 	gravity_reverse = false
 	Physics2DServer.area_set_param(get_world_2d().get_space(), Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(0, 1))
