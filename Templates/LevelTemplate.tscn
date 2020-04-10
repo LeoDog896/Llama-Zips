@@ -93,7 +93,7 @@ position = Vector2( 479.341, -7.98901 )
 scale = Vector2( 1.00725, 0.982077 )
 
 [node name="CollisionShape2D" parent="DeathRegion" index="0"]
-position = Vector2( 4128.46, 641.626 )
+position = Vector2( 4145.46, 645.113 )
 [connection signal="body_entered" from="DeathRegion" to="Player" method="respawn"]
 
 [editable path="DeathRegion"]
