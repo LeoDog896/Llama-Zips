@@ -5,10 +5,10 @@
 [ext_resource path="res://Utils/crate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Utils/DeathRegion.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=32]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6506.39, 60.4698 )
 
-[sub_resource type="RectangleShape2D" id=33]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 946.422, 60.4698 )
 
 [node name="Node2D" type="Node2D"]
@@ -41,7 +41,7 @@ scale = Vector2( 1.00725, 0.982077 )
 
 [node name="CollisionShape2D" parent="DeathRegion" index="0"]
 position = Vector2( 2094.48, 262.989 )
-shape = SubResource( 32 )
+shape = SubResource( 1 )
 
 [node name="DeathRegion3" parent="." instance=ExtResource( 5 )]
 scale = Vector2( 1.00725, 0.982077 )
@@ -55,7 +55,7 @@ scale = Vector2( 1.00725, 0.982077 )
 
 [node name="CollisionShape2D" parent="DeathRegion2" index="0"]
 position = Vector2( 6448.46, -1613.66 )
-shape = SubResource( 33 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="DeathRegion" to="Player" method="respawn"]
 [connection signal="body_entered" from="DeathRegion3" to="Player" method="respawn"]
 [connection signal="body_entered" from="DeathRegion2" to="Player" method="respawn"]
