@@ -8,6 +8,7 @@ extents = Vector2( 24, 24.1224 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
 input_pickable = true
+continuous_cd = 1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

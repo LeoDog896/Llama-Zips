@@ -17,8 +17,8 @@ _global_script_class_icons={
 
 config/name="Gravity Llama"
 run/main_scene="res://Templates/LevelTemplate.tscn"
-boot_splash/image="res://Llama Sprites.png"
-boot_splash/bg_color=Color( 0.0745098, 0.45098, 0.6, 1 )
+boot_splash/image="res://Icon.png"
+boot_splash/bg_color=Color( 0.152941, 0.184314, 0.196078, 1 )
 config/icon="res://Icon-1.png.png"
 
 [display]
