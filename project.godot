@@ -18,6 +18,7 @@ _global_script_class_icons={
 config/name="Gravity Llama"
 run/main_scene="res://Templates/LevelTemplate.tscn"
 boot_splash/image="res://Llama Sprites.png"
+boot_splash/bg_color=Color( 0.0745098, 0.45098, 0.6, 1 )
 config/icon="res://Icon-1.png.png"
 
 [display]
@@ -90,5 +91,5 @@ quality/shadow_atlas/size.mobile=1024
 quality/shadows/filter_mode=0
 quality/depth_prepass/enable=false
 quality/subsurface_scattering/quality=0
-environment/default_clear_color=Color( 0.654902, 0.737255, 0.792157, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
