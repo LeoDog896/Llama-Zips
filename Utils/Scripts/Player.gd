@@ -107,3 +107,8 @@ func _input(event):
 func check():
 	if not is_on_floor():
 		sprite.play("jumping")
+
+
+func teleporter_entered(body):
+	if "Player" in body.get_name():
+		print("eeeee")
