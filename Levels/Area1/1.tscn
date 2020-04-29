@@ -4,7 +4,7 @@
 [ext_resource path="res://Templates/TileMap.tres" type="TileSet" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.4736, 46.8973 )
+extents = Vector2( 34.3708, 47.6047 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,6 +18,7 @@ tile_data = PoolIntArray( -1048523, 0, 393218, -1048522, 0, 65541, -1048521, 0, 
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2761.72, -485.532 )
+z_index = 1001
 
 [node name="Teleporter" type="Area2D" parent="."]
 position = Vector2( 3944.47, -449.029 )
